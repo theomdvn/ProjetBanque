@@ -4,29 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+// Theo midavaine 24452
+
 
 namespace ProjetBanque
 {
     public class Commands // This class will be used as commands, in order to keep program.cs as clean as possible
     {
-     
         public Commands()
         {
-
+        }
+        public static string Path()            // you will need to change the path here.
+        {
+           return "C:/Users/theom/Desktop/Dorset C#"; 
         }
         public static void Title()
         {
-            Console.WriteLine("//////      ////    //////      /////  //////   ////////");
-            Console.WriteLine("//    //  //    //  //   //   //       //          //   ");
-            Console.WriteLine("//    //  //    //  //////      //     ////        //   ");
-            Console.WriteLine("//    //  //    //  //   //       //   //          //   ");
-            Console.WriteLine("//////      ////    //   //   /////    //////      //   ");
+            Console.WriteLine("//////      ////    //////      /////  //////   //////// ");
+            Console.WriteLine("//    //  //    //  //   //   //       //          //    ");
+            Console.WriteLine("//    //  //    //  //////      //     ////        //    ");
+            Console.WriteLine("//    //  //    //  //   //       //   //          //    ");
+            Console.WriteLine("//////      ////    //   //   /////    //////      //    ");
         } // Function to Display DORSET in the big screen
         public static void ReadFile(string file)
         {
             {
-                string path = "C:/Users/theom/Desktop/Dorset C#";
-
+                string path = Commands.Path(); 
+                // you will need to change the path here.
                 string fileToRead = $"{path}/{file}";
 
                 Console.WriteLine($"Reading {fileToRead}");
@@ -329,7 +333,8 @@ namespace ProjetBanque
         public static void CreateCustomersFile() // Function which creates the file customers.txt
         {
             string file = "customers.txt";
-            string path = "C:/Users/theom/Desktop/Dorset C#";
+            string path = Commands.Path(); ;
+           
             string fileToWrite = $"{path}/{file}";
             using (StreamWriter sw = new StreamWriter(fileToWrite))
             {
@@ -338,10 +343,8 @@ namespace ProjetBanque
         public static void AddCustomerToFile(Client a)
         {
             string file = "customers.txt";
-            string path = "C:/Users/theom/Desktop/Dorset C#";
-
+            string path = Commands.Path(); ;
             string fileToWrite = $"{path}/{file}";
-
             using (StreamWriter sw = File.AppendText(fileToWrite))
             {
                 sw.WriteLine($"{a.FullName(a)} \t {Client.AccountName(a)}");

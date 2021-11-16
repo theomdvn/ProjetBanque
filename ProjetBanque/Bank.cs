@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+// Theo midavaine 24452
 namespace ProjetBanque
 {
     public class Bank
@@ -21,7 +22,6 @@ namespace ProjetBanque
              get { return this.customers; } 
         }
         public void view_balances()
-
         {
             foreach (Client customers in this.Customers)
             {
@@ -38,7 +38,8 @@ namespace ProjetBanque
             Console.WriteLine($"The account number is {Client.AccountName(customer)} and your PIN is {Client.Pin(customer)}");
             string fileC = $"{Client.AccountName(customer)}-current";
             string fileS = $"{Client.AccountName(customer)}-savings";
-            string path = "C:/Users/theom/Desktop/Dorset C#";
+            string path = Commands.Path();
+            // you will need to change the path here.
             string fileToWriteC = $"{path}/{fileC}";
             DateTime dt = DateTime.Now;
             using (StreamWriter sw = new StreamWriter(fileToWriteC))
